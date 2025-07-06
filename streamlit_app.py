@@ -227,9 +227,12 @@ if st.button("Submit Test"):
 
         # Convert your submission dict into a list of values (flatten if needed)
         row = [
-            submission["nickname"],
             submission["student_number"],
-            submission["scores"]["total"],
+            submission["nickname"],
+            submission["scores"]["part1_sudoku"],
+            submission["scores"]["part2_combinations"],
+            submission["scores"]["part3_gcf"],
+            submission["scores"]["total"]
             # add other fields or stringify answers if needed
         ]
 
