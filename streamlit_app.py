@@ -10,7 +10,7 @@ class_options = ["3/11", "3/12"]
 selected_class = st.selectbox("Select your class:", class_options)
 nickname = st.text_input("Nickname")
 student_number = st.text_input("Student Number")
-
+st.write(st.secrets["gcp_service_account"]["private_key"][:50])
 # ==== Part I: Sudoku Puzzle (3pts) ====
 st.header("Part I: Sudoku Puzzle (3pts)")
 st.write("**Instruction:** Solve the following Sudoku puzzles using the numbers 1 to 9.")
