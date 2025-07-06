@@ -119,7 +119,7 @@ gcf_questions = {
     20: "Find the GCF of 45 and 60 using the factorization method.",
 }
 for qnum, qtext in gcf_questions.items():
-    st.text_input(f"{qnum}. {qtext}", key=f"gcf{qnum}")
+    st.text_input(f"**{qnum}. {qtext}**", key=f"gcf{qnum}")
 
 # ==== Grading Functions ====
 def grade_sudoku(user_board, puzzle, solution):
