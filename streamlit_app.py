@@ -13,7 +13,7 @@ student_number = st.text_input("Student Number")
 
 # ==== Part I: Sudoku Puzzle (3pts) ====
 st.header("Part I: Sudoku Puzzle (3pts)")
-st.write("**Instruction:** Solve the following Sudoku puzzles using the numbers 1 to 9.")
+st.write("**Instruction:** Solve the following Sudoku puzzle using the numbers 1 to 9.")
 
 puzzle = [
     [5, 8, 9, 4, 0, 1, 7, 3, 6],
