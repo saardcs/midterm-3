@@ -219,11 +219,11 @@ if st.button("Submit Test"):
         from google.oauth2.service_account import Credentials
 
         # Set up creds and open your sheet
-        scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+        scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
         
         # Load credentials from Streamlit secrets
         service_account_info = st.secrets["gcp_service_account"]
-        creds = Credentials.from_service_account_info(service_account_info)
+        creds = Credentials.from_service_account_info(service_account_info, scopes=scopes)
         
         client = gspread.authorize(creds)
         try:
