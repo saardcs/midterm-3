@@ -54,6 +54,8 @@ st.markdown("""
 - Uppercase and lowercase letters  
 - Cannot repeat characters
 """)
+# Image
+st.image("5ch.png")
 questions_2_6 = {
     2: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "d"),
     3: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. All of the above"], "d"),
@@ -70,6 +72,8 @@ st.markdown("""
 - Numbers only  
 - Cannot repeat characters
 """)
+# Image
+st.image("5ch.png")
 questions_7_11 = {
     7: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "a"),
     8: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. All of the above"], "b"),
@@ -86,6 +90,8 @@ st.markdown("""
 - Numbers and letters  
 - Uppercase letters ONLY
 """)
+# Image
+st.image("5ch.png")
 questions_12_16 = {
     12: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "c"),
     13: ("What sets of characters can the code contain? (Select ALL that apply)", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)"], ["b", "c"]),
