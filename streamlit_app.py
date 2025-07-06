@@ -94,19 +94,14 @@ st.markdown("""
 st.image("5ch.png")
 questions_12_16 = {
     12: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "c"),
-    13: ("What sets of characters can the code contain? (Select ALL that apply)", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)"], ["b", "c"]),
+    13: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. b and c" ], "d"),
     14: ("How many possible characters are there for the first spot?", ["a. 62 possible letters and numbers", "b. 26 possible letters and numbers", "c. 36 possible letters and numbers", "d. 10 possible letters and numbers"], "c"),
     15: ("How many possible characters are there for the fifth spot?", ["a. 26 possible letters and numbers", "b. 22 possible letters and numbers", "c. 36 possible letters and numbers", "d. 32 possible letters and numbers"], "c"),
     16: ("How many total password combinations are possible?", ["a. 916,132,832 possible combinations", "b. 60,466,176 possible combinations", "c. 45,239,040 possible combinations", "d. 11,881,376 possible combinations"], "b"),
 }
-for qnum, (question, options, correct_answer) in questions_12_16.items():
-    if isinstance(correct_answer, list):
-        st.multiselect(f"**{qnum}. {question}**", options=options, key=f"q{qnum}")
-    else:
-        st.radio(f"**{qnum}. {question}**", options=options, key=f"q{qnum}")
-    # for qnum in questions_12_16:
-    # q, opts, _ = questions_12_16[qnum]
-    # st.radio(f"**{qnum}. {q}**", options=opts, key=f"q{qnum}")
+for qnum in questions_12_16:
+    q, opts, _ = questions_12_16[qnum]
+    st.radio(f"**{qnum}. {q}**", options=opts, key=f"q{qnum}")
 
 # ==== Part III: GCF (2pts) ====
 st.header("Part III: Greatest Common Factor (2pts)")
@@ -140,15 +135,8 @@ def grade_count():
     for group in (questions_2_6, questions_7_11, questions_12_16):
         for qnum, (_, _, corr) in group.items():
             ans = st.session_state.get(f"q{qnum}", "")
-            if isinstance(corr, list):
-                # Convert to set of answer letters
-                correct_set = set(corr)
-                user_set = {opt[0].lower() for opt in ans}
-                if user_set == correct_set:
-                    correct += 1
-            else:
-                if ans and ans[0].lower() == corr:
-                    correct += 1
+            if ans and ans[0].lower() == corr:
+                correct += 1
             total += 1
     return round(correct / total * 15, 2)
 
