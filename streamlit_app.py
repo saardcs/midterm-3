@@ -216,7 +216,7 @@ if st.button("Submit Test"):
         import datetime
         
         # Timestamp for filenames and sheets
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
         # Convert your submission dict into a list of values (flatten if needed)
         row = [
@@ -225,11 +225,7 @@ if st.button("Submit Test"):
             submission["scores"]["part1_sudoku"],
             submission["scores"]["part2_combinations"],
             submission["scores"]["part3_gcf"],
-            submission["scores"]["total"],
-            submission["answers"]["sudoku"],
-            submission["answers"]["multiple_choice"],
-            submission["answers"]["gcf"],
-            timestamp
+            submission["scores"]["total"]
             # add other fields or stringify answers if needed
         ]
 
