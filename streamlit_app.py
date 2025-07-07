@@ -213,6 +213,11 @@ if st.button("Submit Test"):
         except gspread.WorksheetNotFound:
             st.error(f"Worksheet '{selected_class}' not found. Please check your Google Sheet.")
 
+        import datetime
+        
+        # Timestamp for filenames and sheets
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
         # Convert your submission dict into a list of values (flatten if needed)
         row = [
             submission["student_number"],
@@ -220,7 +225,11 @@ if st.button("Submit Test"):
             submission["scores"]["part1_sudoku"],
             submission["scores"]["part2_combinations"],
             submission["scores"]["part3_gcf"],
-            submission["scores"]["total"]
+            submission["scores"]["total"],
+            submission["answers"]["sudoku"],
+            submission["answers"]["multiple_choice"],
+            submission["answers"]["gcf"],
+            timestamp
             # add other fields or stringify answers if needed
         ]
 
