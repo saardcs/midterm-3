@@ -15,34 +15,15 @@ student_number = st.text_input("Student Number")
 st.header("Part I: Sudoku Puzzle (3pts)")
 st.write("**Instruction:** Solve the following Sudoku puzzle using the numbers 1 to 9.")
 
-puzzle = [
-    [5, 8, 9, 4, 0, 1, 7, 3, 6],
-    [4, 0, 2, 0, 0, 0, 8, 1, 9],
-    [7, 3, 0, 8, 0, 6, 0, 5, 4],
-    [8, 0, 3, 0, 4, 0, 6, 0, 1],
-    [0, 0, 0, 3, 0, 9, 0, 0, 0],
-    [2, 0, 5, 0, 6, 0, 9, 0, 3],
-    [1, 2, 0, 7, 0, 4, 0, 9, 8],
-    [9, 0, 4, 0, 0, 0, 1, 2, 7],
-    [0, 7, 8, 9, 0, 2, 4, 6, 5]
-]
-
-solution = [
-    [5, 8, 9, 4, 2, 1, 7, 3, 6],
-    [4, 6, 2, 5, 7, 3, 8, 1, 9],
-    [7, 3, 1, 8, 9, 6, 2, 5, 4],
-    [8, 9, 3, 2, 4, 5, 6, 7, 1],
-    [6, 1, 7, 3, 8, 9, 5, 4, 2],
-    [2, 4, 5, 1, 6, 7, 9, 8, 3],
-    [1, 2, 6, 7, 5, 4, 3, 9, 8],
-    [9, 5, 4, 6, 3, 8, 1, 2, 7],
-    [3, 7, 8, 9, 1, 2, 4, 6, 5]
-]
+puzzle = st.secrets["sudoku"]["puzzle"]
+solution = st.secrets["sudoku"]["solution"]
 
 sudoku = components.declare_component("sudoku", path="sudoku_component")
 # Call the sudoku component passing the puzzle as default
 board = sudoku(default=puzzle)
 # st.write(board)
+
+answers = st.secrets["answers"]
 
 # ==== Part II: Counting Combinations (15pts) ====
 st.header("Part II: Counting Combinations (15pts)")
@@ -57,11 +38,11 @@ st.markdown("""
 # Image
 st.image("5ch.png")
 questions_2_6 = {
-    2: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "d"),
-    3: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. All of the above"], "d"),
-    4: ("How many possible characters are there for the first spot in the password?", ["a. 60 possible letters and numbers", "b. 62 possible letters and numbers", "c. 61 possible letters and numbers", "d. 59 possible letters and numbers"], "b"),
-    5: ("How many possible characters are there for the fifth spot in the password?", ["a. 60 possible letters and numbers", "b. 58 possible letters and numbers", "c. 61 possible letters and numbers", "d. 59 possible letters and numbers"], "b"),
-    6: ("How many total password combinations are possible?", ["a. 44,261,653,680 possible combinations", "b. 916,132,832 possible combinations", "c. 776,520,240 possible combinations", "d. 13,388,280 possible combinations"], "c"),
+    2: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], answers["q2"]),
+    3: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. All of the above"], answers["q3"]),
+    4: ("How many possible characters are there for the first spot in the password?", ["a. 60 possible letters and numbers", "b. 62 possible letters and numbers", "c. 61 possible letters and numbers", "d. 59 possible letters and numbers"], answers["q4"]),
+    5: ("How many possible characters are there for the fifth spot in the password?", ["a. 60 possible letters and numbers", "b. 58 possible letters and numbers", "c. 61 possible letters and numbers", "d. 59 possible letters and numbers"], answers["q5"]),
+    6: ("How many total password combinations are possible?", ["a. 44,261,653,680 possible combinations", "b. 916,132,832 possible combinations", "c. 776,520,240 possible combinations", "d. 13,388,280 possible combinations"], answers["q6"]),
 }
 for qnum in questions_2_6:
     q, opts, _ = questions_2_6[qnum]
@@ -75,11 +56,11 @@ st.markdown("""
 # Image
 st.image("5ch.png")
 questions_7_11 = {
-    7: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "a"),
-    8: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. All of the above"], "b"),
-    9: ("How many possible characters are there for the first spot in the password?", ["a. 62 possible letters and numbers", "b. 10 possible numbers", "c. 61 possible letters and numbers", "d. 9 possible numbers"], "b"),
-    10: ("How many possible characters are there for the fifth spot in the password?", ["a. 60 possible letters and numbers", "b. 10 possible numbers", "c. 61 possible letters and numbers", "d. 6 possible numbers"], "d"),
-    11: ("How many total password combinations are possible?", ["a. 44,261,653,680 possible combinations", "b. 916,132,832 possible combinations", "c. 100,000 possible combinations", "d. 30,240 possible combinations"], "d"),
+    7: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], answers["q7"]),
+    8: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. All of the above"], answers["q8"]),
+    9: ("How many possible characters are there for the first spot in the password?", ["a. 62 possible letters and numbers", "b. 10 possible numbers", "c. 61 possible letters and numbers", "d. 9 possible numbers"], answers["q9"]),
+    10: ("How many possible characters are there for the fifth spot in the password?", ["a. 60 possible letters and numbers", "b. 10 possible numbers", "c. 61 possible letters and numbers", "d. 6 possible numbers"], answers["q10"]),
+    11: ("How many total password combinations are possible?", ["a. 44,261,653,680 possible combinations", "b. 916,132,832 possible combinations", "c. 100,000 possible combinations", "d. 30,240 possible combinations"], answers["q11"]),
 }
 for qnum in questions_7_11:
     q, opts, _ = questions_7_11[qnum]
@@ -93,11 +74,11 @@ st.markdown("""
 # Image
 st.image("5ch.png")
 questions_12_16 = {
-    12: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], "c"),
-    13: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. b and c" ], "d"),
-    14: ("How many possible characters are there for the first spot?", ["a. 62 possible letters and numbers", "b. 26 possible letters and numbers", "c. 36 possible letters and numbers", "d. 10 possible letters and numbers"], "c"),
-    15: ("How many possible characters are there for the fifth spot?", ["a. 26 possible letters and numbers", "b. 22 possible letters and numbers", "c. 36 possible letters and numbers", "d. 32 possible letters and numbers"], "c"),
-    16: ("How many total password combinations are possible?", ["a. 916,132,832 possible combinations", "b. 60,466,176 possible combinations", "c. 45,239,040 possible combinations", "d. 11,881,376 possible combinations"], "b"),
+    12: ("What characters can make up the code?", ["a. 10 numbers", "b. 26 letters", "c. 10 numbers and 26 letters", "d. 10 numbers and 52 letters"], answers["q12"]),
+    13: ("What sets of characters can the code contain?", ["a. a-z (lowercase letters)", "b. 0-9 (numbers)", "c. A-Z (uppercase letters)", "d. b and c" ], answers["q13"]),
+    14: ("How many possible characters are there for the first spot?", ["a. 62 possible letters and numbers", "b. 26 possible letters and numbers", "c. 36 possible letters and numbers", "d. 10 possible letters and numbers"], answers["q14"]),
+    15: ("How many possible characters are there for the fifth spot?", ["a. 26 possible letters and numbers", "b. 22 possible letters and numbers", "c. 36 possible letters and numbers", "d. 32 possible letters and numbers"], answers["q15"]),
+    16: ("How many total password combinations are possible?", ["a. 916,132,832 possible combinations", "b. 60,466,176 possible combinations", "c. 45,239,040 possible combinations", "d. 11,881,376 possible combinations"], answers["q16"]),
 }
 for qnum in questions_12_16:
     q, opts, _ = questions_12_16[qnum]
@@ -141,13 +122,8 @@ def grade_count():
     return round(correct / total * 15, 2)
 
 def grade_gcf():
-    answers = {
-        "gcf17": "11",
-        "gcf18": "25",
-        "gcf19": "18",
-        "gcf20": "15",
-    }
-    score = sum(1 for k, v in answers.items() if st.session_state.get(k) == v) * 0.5
+    gcf_answers = st.secrets["gcf"]
+    score = sum(1 for k, v in gcf_answers.items() if st.session_state.get(k) == v) * 0.5
     return round(score, 2)
 
 # if st.button("Grade Test"):
@@ -190,9 +166,6 @@ if st.button("Submit Test"):
         # Save to file
         import json, os
         os.makedirs("submissions", exist_ok=True)
-        file_path = f"submissions/{student_number}.json"
-        with open(file_path, "w") as f:
-            json.dump(submission, f, indent=2)
 
         # st.markdown("### 📄 Submission Preview")
         # st.json(submission)
@@ -216,19 +189,33 @@ if st.button("Submit Test"):
         import datetime
         
         # Timestamp for filenames and sheets
-        # timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        filename_ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        json_path = os.path.join("submissions", f'{selected_class.replace("/", "-")}_{nickname}_{student_number}_{filename_ts}.json')
+        with open(json_path, "w") as f:
+            json.dump(submission, f, indent=2)
         
         # Convert your submission dict into a list of values (flatten if needed)
         row = [
-            submission["student_number"],
-            submission["nickname"],
-            submission["scores"]["part1_sudoku"],
-            submission["scores"]["part2_combinations"],
-            submission["scores"]["part3_gcf"],
-            submission["scores"]["total"]
+            student_number,
+            nickname,
+            s1,
+            s2,
+            s3,
+            total,
+            timestamp
             # add other fields or stringify answers if needed
         ]
 
         sheet.append_row(row)
         # st.success("Submission sent to Google Sheets! ✅")
-        st.success(f"Submission received! ✅ Total Score: {round(total)}/20")
+        st.success(f"Success! Download your answer file and submit it via Google Classroom.")
+        
+        with open(json_path, "rb") as f:
+            st.download_button(
+            "Download answers",
+                data=f,
+                file_name=os.path.basename(json_path),
+                mime="application/json"
+            )
