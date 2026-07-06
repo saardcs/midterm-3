@@ -90,8 +90,8 @@ st.write("**Instruction:** Solve the following problem.")
 
 gcf_questions = {
     17: "Find the GCF of 33 and 22 using the factorization method.",
-    18: "Find the GCF of 25 and 50 using the factorization method.",
-    19: "Find the GCF of 36 and 54 using the factorization method.",
+    18: "Find the GCF of 25 and 50 using the subtraction method.",
+    19: "Find the GCF of 36 and 54 using the sibtraction method.",
     20: "Find the GCF of 45 and 60 using the factorization method.",
 }
 for qnum, qtext in gcf_questions.items():
